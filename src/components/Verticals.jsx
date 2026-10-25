@@ -1,96 +1,130 @@
 import React from 'react'
 
-export default function Verticals() {
-  const verticals = [
-    {
-      number: '01',
-      title: 'Food & First Access Edibles',
-      subtitle: 'Pure Farm Harvests & Direct Nutrition',
-      description: 'First access to handpicked organic pulses, A2 Gir Cow Ghee, fresh urban microgreens, and pure moringa and amla powders.',
-      details: ['Pure A2 Bilona Ghee', 'Handpicked Native Pulses', 'Urban Balcony Grow Workshops'],
-      image: '/assets/PULSES.png',
-      badge: 'Daily Habit'
-    },
-    {
-      number: '02',
-      title: 'Experiences & Digital Detox',
-      subtitle: 'Mindful Retreats & Slow Living',
-      description: 'Exclusive weekend trips, farm-to-table culinary sessions, balcony grow classes, and digital detox journeys designed to help you disconnect.',
-      details: ['Farm-to-Fork Gatherings', 'Balcony Gardening Classes', 'Curated Digital Detox Paths'],
-      image: '/assets/Gemini_Generated_Image_jr6ctvjr6ctvjr6c.png',
-      badge: 'Weekend Escape'
-    },
-    {
-      number: '03',
-      title: 'Country Stays & Retreats',
-      subtitle: 'Franchised Member Properties',
-      description: 'Carefully designed country stays operating on an exclusive partner model near major cities, providing an unhurried refuge for reflection.',
-      details: ['Grounded Architecture', 'Near Major Cities', 'Exclusive Member Access'],
-      image: '/assets/Ghee.png',
-      badge: 'Physical Refuge'
-    }
-  ]
+const pillars = [
+  {
+    number: '01',
+    mantra: 'Eat Whole',
+    title: 'Conscious, Unprocessed Food',
+    tagline: 'Food the way the soil intended.',
+    description:
+      'Small-batch staples grown without shortcuts and sent to your kitchen as close to the farm as possible. Nothing polished, bleached or preserved, and always traceable to where it was grown.',
+    offerings: [
+      'A2 Gir cow Bilona ghee',
+      'Unpolished heritage pulses',
+      'Shade-dried moringa & amla powders',
+      'Fresh urban microgreens',
+    ],
+    rhythm: 'Every Day',
+    image: '/assets/pillars/food.webp',
+    alt: 'Sthir Life paper pouch of moringa resting on raw farm soil',
+  },
+  {
+    number: '02',
+    mantra: 'Live Slow',
+    title: 'Slow Living Practices',
+    tagline: 'Rituals that bring the pace down.',
+    description:
+      'Simple, repeatable practices that fit into city life: tending a balcony garden, cooking from scratch, putting the phone away and gathering around a shared table.',
+    offerings: [
+      'Balcony grow workshops',
+      'Farm-to-fork gatherings',
+      'Mindful cooking sessions',
+      'Curated digital detox paths',
+    ],
+    rhythm: 'Every Week',
+    image: '/assets/pillars/slow-living.webp',
+    alt: 'Linen Sthir Life tote in a quiet, sunlit room with an olive branch',
+  },
+  {
+    number: '03',
+    mantra: 'Rest Deep',
+    title: 'Healing Retreats',
+    tagline: 'Time away to reset, close to the city.',
+    description:
+      'Unhurried country stays at partner properties near major cities, where days follow the sun, meals come from the farm and screens stay switched off.',
+    offerings: [
+      'Weekend digital detox retreats',
+      'Seasonal farm-to-table meals',
+      'Grounded, nature-led spaces',
+      'Exclusive member access',
+    ],
+    rhythm: 'Every Season',
+    image: '/assets/pillars/retreats.webp',
+    alt: 'Jar of Bilona ghee on a sunlit table among traditional brass vessels',
+  },
+]
 
+export default function Verticals() {
   return (
     <section id="verticals" className="py-24 bg-kraft border-t border-forest/10">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-sans uppercase tracking-widest text-terracotta font-semibold">
-            Sthir Life Verticals
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <span className="text-xs font-sans uppercase tracking-widest text-terracotta-dark font-semibold">
+            The Sthir Life Ecosystem
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-widest text-forest font-normal mt-2">
-            A Cohesive Ecosystem
+          <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-widest text-forest-dark font-medium mt-2">
+            Three Pillars. <br />
+            <span className="italic text-terracotta-dark">One Way of Living.</span>
           </h2>
-          <div className="w-12 h-0.5 bg-terracotta mx-auto my-4"></div>
-          <p className="font-sans text-sm text-forest/80 leading-relaxed font-light">
-            Designed around three interconnected pillars to nurture mental and physical well-being.
+          <div className="w-16 h-0.5 bg-terracotta mx-auto my-6"></div>
+          <p className="font-sans text-base sm:text-lg text-forest leading-relaxed max-w-xl mx-auto">
+            What you eat, how you live each day, and how you rest. Each pillar strengthens the others.
+          </p>
+          <p className="font-serif italic text-xl sm:text-2xl text-terracotta-dark mt-4">
+            Eat whole. Live slow. Rest deep.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {verticals.map((v) => (
-            <div
-              key={v.number}
-              className="bg-kraft-light/60 rounded-2xl p-6 sm:p-8 border border-forest/10 hover:border-terracotta/40 transition-all duration-500 shadow-sm hover:shadow-md flex flex-col justify-between group"
+        <div className="space-y-16 sm:space-y-24">
+          {pillars.map((p, i) => (
+            <article
+              key={p.number}
+              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
             >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-serif text-3xl italic text-terracotta">{v.number}</span>
-                  <span className="text-[10px] uppercase tracking-widest text-forest bg-kraft px-3 py-1 rounded-full border border-forest/15">
-                    {v.badge}
+              <div className={`relative ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div
+                  className={`absolute -inset-3 rounded-[2rem] bg-terracotta/10 ${i % 2 === 1 ? '-rotate-2' : 'rotate-2'}`}
+                  aria-hidden="true"
+                ></div>
+                <div className="relative overflow-hidden rounded-3xl shadow-xl shadow-forest/15 aspect-[4/3] group">
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <span className="absolute top-4 left-4 text-[11px] uppercase tracking-widest font-semibold text-forest-dark bg-kraft-light/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    {p.rhythm}
                   </span>
                 </div>
-
-                <div className="overflow-hidden rounded-xl mb-6 aspect-video bg-kraft">
-                  <img
-                    src={v.image}
-                    alt={v.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-
-                <h3 className="font-serif text-2xl text-forest uppercase tracking-wider mb-1 font-medium">
-                  {v.title}
-                </h3>
-                <p className="font-sans text-xs uppercase tracking-widest text-terracotta font-medium mb-3">
-                  {v.subtitle}
-                </p>
-                <p className="font-sans text-xs text-forest/80 leading-relaxed font-light mb-6">
-                  {v.description}
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-forest/10">
-                <ul className="space-y-2">
-                  {v.details.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-[11px] text-forest/90 uppercase tracking-wider font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+              <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
+                <div className="flex items-baseline gap-4 mb-4">
+                  <span className="font-serif italic text-5xl text-terracotta leading-none">{p.number}</span>
+                  <span className="font-sans text-xs uppercase tracking-widest font-semibold text-forest/70">
+                    {p.mantra}
+                  </span>
+                </div>
+                <h3 className="font-serif text-3xl sm:text-4xl uppercase tracking-wider text-forest-dark font-semibold leading-tight">
+                  {p.title}
+                </h3>
+                <p className="font-serif italic text-xl sm:text-2xl text-terracotta-dark mt-2 mb-5">
+                  {p.tagline}
+                </p>
+                <p className="font-sans text-sm sm:text-base text-forest/90 leading-relaxed mb-7">
+                  {p.description}
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 pt-6 border-t border-forest/15">
+                  {p.offerings.map((item) => (
+                    <li key={item} className="flex items-start gap-3 font-sans text-sm text-forest">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0"></span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

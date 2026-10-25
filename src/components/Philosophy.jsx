@@ -53,24 +53,21 @@ export default function Philosophy() {
           Modern life pulls us apart: hurried minds, depleted bodies. Sthir Life is a selective, community-first country club rooted in a simple belief, that true well-being begins with stillness and whole nutrition.
         </p>
         <p className="font-serif italic text-xl sm:text-2xl text-terracotta-dark mb-14">
-          Two pillars. Two quiet crises we refuse to accept.
+          Two quiet crises we refuse to accept.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
-          {pillars.map((pillar, i) => (
+          {pillars.map((pillar) => (
             <article
               key={pillar.title}
               className="flex flex-col bg-kraft-light rounded-3xl border border-forest/10 shadow-sm hover:shadow-xl hover:shadow-forest/10 hover:-translate-y-1 transition-all duration-500 overflow-hidden"
             >
               {/* Header */}
-              <div className="p-6 sm:p-10 pb-6 flex items-start gap-4 sm:gap-5">
+              <div className="p-6 sm:p-10 pb-6 flex items-center gap-4 sm:gap-5">
                 <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-forest text-kraft-light flex items-center justify-center shadow-md">
                   {pillar.icon}
                 </div>
                 <div>
-                  <span className="font-sans text-[11px] uppercase tracking-widest text-forest/60 font-semibold">
-                    Pillar 0{i + 1}
-                  </span>
                   <h3 className="font-serif text-2xl sm:text-3xl uppercase tracking-wide sm:tracking-wider text-forest-dark font-semibold leading-tight">
                     {pillar.title}
                   </h3>
