@@ -44,13 +44,13 @@ export default function Philosophy() {
         </span>
 
         <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-widest text-forest-dark font-medium mt-2 mb-6">
-          Beyond Retail. <span className="italic font-medium text-terracotta-dark">An Urban Refuge.</span>
+          Calm Mind. <br className="sm:hidden" /><span className="italic font-medium text-terracotta-dark">Whole Body.</span>
         </h2>
 
         <div className="w-16 h-0.5 bg-terracotta mx-auto mb-8"></div>
 
         <p className="font-sans text-base sm:text-lg text-forest leading-relaxed max-w-3xl mx-auto mb-4">
-          We reject the aggressive pace of modern e-commerce. Sthir Life is not a normal commercial venture. It is a selective, community-first country club dedicated to restoring calmness and whole nutrition in an overstimulated world.
+          Modern life pulls us apart: hurried minds, depleted bodies. Sthir Life is a selective, community-first country club rooted in a simple belief, that true well-being begins with stillness and whole nutrition.
         </p>
         <p className="font-serif italic text-xl sm:text-2xl text-terracotta-dark mb-14">
           Two pillars. Two quiet crises we refuse to accept.
