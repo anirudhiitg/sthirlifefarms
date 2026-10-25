@@ -21,44 +21,58 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-8">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-kraft/90 backdrop-blur-md border border-forest/15 mb-8 shadow-sm">
-          <img src="/assets/LOGO.png" alt="Logo Seal" className="w-6 h-6 object-contain rounded-full" />
-          <span className="text-[11px] uppercase tracking-widest text-forest font-semibold">
-            Member-Only Slow Living Ecosystem
-          </span>
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 sm:px-8 grid lg:grid-cols-[1.15fr_1fr] items-center gap-12 lg:gap-16">
+        <div className="order-2 lg:order-1 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-kraft/90 backdrop-blur-md border border-forest/15 mb-8 shadow-sm">
+            <img src="/assets/LOGO.png" alt="Logo Seal" className="w-6 h-6 object-contain rounded-full" />
+            <span className="text-[11px] uppercase tracking-widest text-forest font-semibold">
+              Member-Only Slow Living Ecosystem
+            </span>
+          </div>
+
+          <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-medium uppercase tracking-[0.12em] text-forest-dark leading-tight mb-6">
+            Stay Still. <br />
+            <span className="italic font-medium text-terracotta-dark">Live Whole.</span>
+          </h1>
+
+          <p className="font-sans text-base sm:text-lg text-forest max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10">
+            A member-only country club bringing calmness to everyday city life. Rooted in the sun-baked soil of Rajasthan, providing whole foods, digital detox paths, and unhurried retreats.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a
+              href="#community"
+              className="w-full sm:w-auto px-8 py-4 bg-forest text-kraft font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest-light transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              Apply for Community Membership
+            </a>
+            <a
+              href="#philosophy"
+              className="w-full sm:w-auto px-8 py-4 bg-transparent border border-forest/40 text-forest font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest/5 hover:border-forest transition-all duration-300"
+            >
+              Read Our Manifesto
+            </a>
+          </div>
         </div>
 
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-medium uppercase tracking-[0.12em] text-forest-dark leading-tight mb-6">
-          Stay Still. <br />
-          <span className="italic font-medium text-terracotta-dark">Live Whole.</span>
-        </h1>
-
-        <p className="font-sans text-base sm:text-lg text-forest max-w-2xl mx-auto leading-relaxed mb-10">
-          A member-only country club bringing calmness to everyday city life. Rooted in the sun-baked soil of Rajasthan, providing whole foods, digital detox paths, and unhurried retreats.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#community"
-            className="w-full sm:w-auto px-8 py-4 bg-forest text-kraft font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest-light transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            Apply for Community Membership
-          </a>
-          <a
-            href="#philosophy"
-            className="w-full sm:w-auto px-8 py-4 bg-transparent border border-forest/40 text-forest font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest/5 hover:border-forest transition-all duration-300"
-          >
-            Read Our Manifesto
-          </a>
+        {/* Brand mark, shown in full beside the copy rather than behind it */}
+        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div className="relative w-44 sm:w-64 lg:w-full lg:max-w-md">
+            <div className="absolute -inset-4 rounded-[2.5rem] bg-terracotta/10 rotate-3" aria-hidden="true"></div>
+            <img
+              src="/assets/LOGO.png"
+              alt="Sthir Life emblem: a young plant rising from rolling fields"
+              className="relative w-full aspect-square object-cover rounded-[2rem] shadow-2xl shadow-forest/25"
+            />
+          </div>
         </div>
+      </div>
 
-        <div className="mt-16 animate-bounce text-forest/70 flex flex-col items-center gap-1">
-          <span className="text-[10px] uppercase tracking-widest">Scroll to Explore</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce text-forest/70 hidden sm:flex flex-col items-center gap-1">
+        <span className="text-[10px] uppercase tracking-widest">Scroll to Explore</span>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </div>
     </section>
   )
