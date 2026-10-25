@@ -2,15 +2,23 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/Gemini_Generated_Image_wyvjxbwyvjxbwyvj.png"
-          alt="Sthir Life Farm Landscape"
-          className="w-full h-full object-cover object-center brightness-[0.88] contrast-[0.95]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-kraft via-kraft/60 to-transparent"></div>
-        <div className="absolute inset-0 bg-forest/20 mix-blend-multiply"></div>
+    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-kraft-light">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        {/* Soft sun-washed glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#F4EFEA_0%,_#EDE5DA_45%,_#E8E0D5_100%)]"></div>
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70rem] h-[40rem] rounded-full bg-terracotta/10 blur-3xl"></div>
+
+        {/* Gentle rolling fields along the horizon, echoing the logo */}
+        <svg
+          className="absolute bottom-0 left-0 w-full h-[38%] text-forest"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          <path fillOpacity="0.06" d="M0 170 C 240 110, 480 120, 720 160 S 1200 220, 1440 140 L 1440 320 L 0 320 Z" />
+          <path fillOpacity="0.08" d="M0 230 C 300 180, 560 200, 820 235 S 1260 260, 1440 215 L 1440 320 L 0 320 Z" />
+          <path fillOpacity="0.10" d="M0 285 C 360 250, 700 265, 1000 285 S 1320 300, 1440 280 L 1440 320 L 0 320 Z" />
+        </svg>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-8">
@@ -21,12 +29,12 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-widest text-forest leading-tight mb-6">
-          Stay Still. <br className="hidden sm:inline" />
-          <span className="italic font-normal text-terracotta">Live Whole.</span>
+        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-medium uppercase tracking-[0.12em] text-forest-dark leading-tight mb-6">
+          Stay Still. <br />
+          <span className="italic font-medium text-terracotta-dark">Live Whole.</span>
         </h1>
 
-        <p className="font-sans text-sm sm:text-base text-forest/90 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+        <p className="font-sans text-base sm:text-lg text-forest max-w-2xl mx-auto leading-relaxed mb-10">
           A member-only country club bringing calmness to everyday city life. Rooted in the sun-baked soil of Rajasthan, providing whole foods, digital detox paths, and unhurried retreats.
         </p>
 
@@ -39,13 +47,13 @@ export default function Hero() {
           </a>
           <a
             href="#philosophy"
-            className="w-full sm:w-auto px-8 py-4 bg-kraft/80 backdrop-blur-sm border border-forest/20 text-forest font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-kraft transition-all duration-300"
+            className="w-full sm:w-auto px-8 py-4 bg-transparent border border-forest/40 text-forest font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest/5 hover:border-forest transition-all duration-300"
           >
             Read Our Manifesto
           </a>
         </div>
 
-        <div className="mt-16 animate-bounce text-forest/60 flex flex-col items-center gap-1">
+        <div className="mt-16 animate-bounce text-forest/70 flex flex-col items-center gap-1">
           <span className="text-[10px] uppercase tracking-widest">Scroll to Explore</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
