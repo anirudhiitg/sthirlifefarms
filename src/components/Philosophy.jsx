@@ -15,14 +15,7 @@ const pillars = [
     ),
     problemHeadline: 'Our minds never get to rest.',
     problem:
-      'City life now runs on notifications. We check our phones before we are fully awake, work through endless screens, and scroll to fall asleep. Silence has become rare, attention spans are shrinking, and burnout, anxiety and poor sleep are quietly becoming normal.',
-    signs: [
-      'Constant notifications that fracture focus',
-      'Screens from waking up to falling asleep',
-      'Few places left that are truly quiet',
-    ],
-    response:
-      'Structured spaces, quiet retreats and mindful rituals that counteract digital noise, so urban dwellers can rediscover inner, still focus.',
+      'From the first alarm to the last scroll, city life runs on screens. Silence is rare, and burnout and poor sleep now feel normal.',
   },
   {
     title: 'Physical Well\u2011Being',
@@ -38,14 +31,7 @@ const pillars = [
     ),
     problemHeadline: 'We have lost touch with real food.',
     problem:
-      'Most of what reaches our plates is processed, polished and travels a long way from an unknown source. Adulteration is common, convenience foods have replaced home cooking, and desk-bound days leave little room for natural movement. Lifestyle diseases are now appearing earlier than ever.',
-    signs: [
-      'Polished, processed and adulterated staples',
-      'No idea where our food is grown, or how',
-      'Sedentary routines with little time outdoors',
-    ],
-    response:
-      'Unadulterated farm produce, pure Bilona ghee, unpolished heritage pulses and vibrant balcony grow gardens, nourishment you can trace back to the soil.',
+      'Our staples are processed, polished and often adulterated, and desk-bound days leave little room to move. Lifestyle diseases are arriving earlier.',
   },
 ]
 
@@ -95,33 +81,15 @@ export default function Philosophy() {
               </div>
 
               {/* Why this pillar */}
-              <div className="px-6 sm:px-10 pb-8">
+              <div className="px-6 sm:px-10 pb-8 sm:pb-10">
                 <span className="inline-block font-sans text-[11px] uppercase tracking-widest font-semibold text-terracotta-dark bg-terracotta/10 rounded-full px-3 py-1 mb-4">
                   The Problem Today
                 </span>
                 <h4 className="font-serif italic text-2xl text-forest-dark mb-3">
                   {pillar.problemHeadline}
                 </h4>
-                <p className="font-sans text-sm sm:text-[15px] text-forest/90 leading-relaxed mb-5">
+                <p className="font-sans text-sm sm:text-[15px] text-forest/90 leading-relaxed">
                   {pillar.problem}
-                </p>
-                <ul className="space-y-2.5">
-                  {pillar.signs.map((sign) => (
-                    <li key={sign} className="flex items-start gap-3 font-sans text-sm text-forest">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0"></span>
-                      {sign}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Our response */}
-              <div className="mt-auto bg-forest text-kraft-light px-6 sm:px-10 py-7">
-                <span className="font-sans text-[11px] uppercase tracking-widest font-semibold text-kraft-dark">
-                  How Sthir Life Responds
-                </span>
-                <p className="font-sans text-sm sm:text-[15px] leading-relaxed mt-2 text-kraft-light/95">
-                  {pillar.response}
                 </p>
               </div>
             </article>
