@@ -4,9 +4,13 @@ import React from 'react'
  * About the founders: a father and son building Sthir Life together.
  * Everything in [square brackets] is a placeholder to replace.
  *
- * To add photos: put them in public/assets/founder/ (portrait photos, ideally on
- * the farm, around 1000px wide) and set each `photo`, e.g. '/assets/founder/father.jpg'.
+ * To add photos: put them in public/assets/founder/ and set the paths below.
+ *   - Each founder's `photo`: a portrait, ideally on the farm, around 1000px wide
+ *     (e.g. '/assets/founder/father.jpg').
+ *   - `togetherPhoto`: the two of them together, landscape, around 1800px wide
+ *     (e.g. '/assets/founder/together.jpg').
  */
+const togetherPhoto = null
 const story = [
   'Sthir Life is a family story. [Father’s Name] has spent [X years] close to the land in Rajasthan, [a line about his life on the farm or his roots]. [Son’s Name] grew up hearing those stories, then spent [X years] in [city / profession], living the fast, always-on life so many of us know.',
   '[One or two lines about the moment they decided to build something together, e.g. a season the son spent back on the farm.] Today, one brings the patience of the soil and the other the needs of the city. Sthir Life is where the two meet.',
@@ -113,9 +117,44 @@ export default function Founder() {
           ))}
         </div>
 
-        <p className="text-center font-serif italic text-2xl sm:text-3xl text-forest-dark mt-16 sm:mt-20">
-          Built together, <span className="text-terracotta-dark">slowly.</span>
-        </p>
+        <figure className="mt-16 sm:mt-24 max-w-5xl mx-auto">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] rounded-3xl overflow-hidden shadow-xl shadow-forest/15">
+            {togetherPhoto ? (
+              <img
+                src={togetherPhoto}
+                alt={`${founders[0].name} and ${founders[1].name} together on the farm`}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-kraft-dark/50 border-2 border-dashed border-forest/20 rounded-3xl">
+                <svg
+                  viewBox="0 0 32 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.2}
+                  strokeLinecap="round"
+                  className="w-20 h-16 sm:w-24 sm:h-20 text-forest/35 mb-3"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="7" r="3.6" />
+                  <path d="M3.5 21c1-4.2 3.9-6.6 7.5-6.6s6.5 2.4 7.5 6.6" />
+                  <circle cx="22" cy="8.5" r="3" />
+                  <path d="M17.5 15.2c1.2-1.2 2.7-1.8 4.5-1.8 3 0 5.4 2 6.2 5.6" />
+                </svg>
+                <p className="font-serif text-lg sm:text-xl uppercase tracking-wider text-forest-dark font-semibold">
+                  Father &amp; Son, Together
+                </p>
+                <p className="font-sans text-[10px] uppercase tracking-widest text-forest/60 font-semibold mt-2">
+                  Photo coming soon
+                </p>
+              </div>
+            )}
+          </div>
+          <figcaption className="text-center font-serif italic text-2xl sm:text-3xl text-forest-dark mt-8">
+            Built together, <span className="text-terracotta-dark">slowly.</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   )
