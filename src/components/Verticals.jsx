@@ -4,7 +4,7 @@ const pillars = [
   {
     number: '01',
     mantra: 'Eat Whole',
-    title: 'Conscious, Unprocessed Food',
+    title: 'Whole Nourishment',
     tagline: 'Food the way the soil intended.',
     description:
       'Small-batch staples grown without shortcuts and sent to your kitchen as close to the farm as possible. Nothing polished, bleached or preserved, and always traceable to where it was grown.',
@@ -21,7 +21,7 @@ const pillars = [
   {
     number: '02',
     mantra: 'Live Slow',
-    title: 'Slow Living Practices',
+    title: 'Slow Rituals',
     tagline: 'Rituals that bring the pace down.',
     description:
       'Simple, repeatable practices that fit into city life: tending a balcony garden, cooking from scratch, putting the phone away and gathering around a shared table.',
@@ -38,7 +38,7 @@ const pillars = [
   {
     number: '03',
     mantra: 'Rest Deep',
-    title: 'Healing Retreats',
+    title: 'Restorative Retreats',
     tagline: 'Time away to reset, close to the city.',
     description:
       'Unhurried country stays at partner properties near major cities, where days follow the sun, meals come from the farm and screens stay switched off.',
