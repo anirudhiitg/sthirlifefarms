@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Philosophy from './components/Philosophy'
 import Verticals from './components/Verticals'
 import SthirWay from './components/SthirWay'
+import Founder from './components/Founder'
 import Membership from './components/Membership'
 import Harvest from './components/Harvest'
 import Gallery from './components/Gallery'
@@ -21,6 +22,7 @@ export default function App() {
         <Philosophy />
         <Verticals />
         <SthirWay />
+        <Founder />
         <Membership />
         <Gallery />
         <Harvest />
