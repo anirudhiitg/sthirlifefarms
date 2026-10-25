@@ -3,8 +3,10 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Philosophy from './components/Philosophy'
 import Verticals from './components/Verticals'
-import Craftsmanship from './components/Craftsmanship'
-import Products from './components/Products'
+import SthirWay from './components/SthirWay'
+import Founder from './components/Founder'
+import Membership from './components/Membership'
+import Harvest from './components/Harvest'
 import Gallery from './components/Gallery'
 import CommunityForm from './components/CommunityForm'
 import Footer from './components/Footer'
@@ -19,9 +21,11 @@ export default function App() {
         <Hero />
         <Philosophy />
         <Verticals />
-        <Craftsmanship />
+        <SthirWay />
+        <Founder />
+        <Membership />
         <Gallery />
-        <Products />
+        <Harvest />
         <CommunityForm />
       </main>
       <Footer />
