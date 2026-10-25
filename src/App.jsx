@@ -4,7 +4,8 @@ import Hero from './components/Hero'
 import Philosophy from './components/Philosophy'
 import Verticals from './components/Verticals'
 import SthirWay from './components/SthirWay'
-import Products from './components/Products'
+import Membership from './components/Membership'
+import Harvest from './components/Harvest'
 import Gallery from './components/Gallery'
 import CommunityForm from './components/CommunityForm'
 import Footer from './components/Footer'
@@ -20,8 +21,9 @@ export default function App() {
         <Philosophy />
         <Verticals />
         <SthirWay />
+        <Membership />
         <Gallery />
-        <Products />
+        <Harvest />
         <CommunityForm />
       </main>
       <Footer />

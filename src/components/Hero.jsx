@@ -44,7 +44,7 @@ export default function Hero() {
               href="#community"
               className="w-full sm:w-auto px-8 py-4 bg-forest text-kraft font-sans text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest-light transition-all duration-300 shadow-md hover:shadow-lg"
             >
-              Apply for Community Membership
+              Request an Invite
             </a>
             <a
               href="#philosophy"

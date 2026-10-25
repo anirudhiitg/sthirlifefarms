@@ -56,7 +56,7 @@ const pillars = [
 
 export default function Verticals() {
   return (
-    <section id="verticals" className="py-24 bg-kraft border-t border-forest/10">
+    <section id="pillars" className="py-24 bg-kraft border-t border-forest/10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-xs font-sans uppercase tracking-widest text-terracotta-dark font-semibold">

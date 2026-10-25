@@ -1,4 +1,5 @@
 import React from 'react'
+import { whatsappLink } from '../config'
 
 export default function Footer() {
   return (
@@ -36,11 +37,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs uppercase tracking-wider text-kraft/80">
               <li><a href="#philosophy" className="hover:text-kraft transition-colors">Slow Living Philosophy</a></li>
-              <li><a href="#verticals" className="hover:text-kraft transition-colors">Our Three Verticals</a></li>
+              <li><a href="#pillars" className="hover:text-kraft transition-colors">Our Three Pillars</a></li>
               <li><a href="#sthir-way" className="hover:text-kraft transition-colors">The Sthir Way</a></li>
-              <li><a href="#gallery" className="hover:text-kraft transition-colors">Visual Gallery</a></li>
-              <li><a href="#products" className="hover:text-kraft transition-colors">Edibles & Artifacts</a></li>
-              <li><a href="#community" className="hover:text-kraft transition-colors">Apply for Membership</a></li>
+              <li><a href="#membership" className="hover:text-kraft transition-colors">Membership</a></li>
+              <li><a href="#gallery" className="hover:text-kraft transition-colors">Life on the Farm</a></li>
+              <li><a href="#harvest" className="hover:text-kraft transition-colors">From the Harvest</a></li>
+              <li><a href="#community" className="hover:text-kraft transition-colors">Request an Invite</a></li>
             </ul>
           </div>
 
@@ -53,7 +55,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2">
               <a
-                href="https://wa.me/919999999999?text=Hello%20Sthir%20Life%20Farms,%20I%20would%20like%20to%20know%20more%20about%20the%20community."
+                href={whatsappLink('Hello Sthir Life Farms, I would like to know more about the community.')}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-medium text-kraft bg-terracotta/90 hover:bg-terracotta px-4 py-2.5 rounded-full transition-all duration-300 w-fit"

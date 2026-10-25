@@ -1,139 +1,153 @@
 import React, { useState } from 'react'
+import { GOOGLE_FORM, INTEREST_OPTIONS, isGoogleFormConfigured, whatsappLink } from '../config'
+
+const emptyForm = {
+  fullName: '',
+  email: '',
+  city: '',
+  interest: INTEREST_OPTIONS[INTEREST_OPTIONS.length - 1],
+  message: '',
+  newsletter: false,
+}
+
+const inputClass =
+  'w-full px-4 py-3 rounded-xl bg-kraft border border-forest/20 text-sm text-forest focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-colors placeholder:text-forest/50'
+const labelClass = 'block text-xs uppercase tracking-widest text-forest-dark font-semibold mb-2'
 
 export default function CommunityForm() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    city: '',
-    interest: 'edibles',
-    message: ''
-  })
-  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState(emptyForm)
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
-  const handleSubmit = (e) => {
+  const update = (field) => (e) =>
+    setFormData({ ...formData, [field]: e.target.type === 'checkbox' ? e.target.checked : e.target.value })
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (formData.fullName && formData.email) {
-      setSubmitted(true)
+
+    if (!isGoogleFormConfigured) {
+      console.warn('Invite form is not connected yet: set GOOGLE_FORM in src/config.js.')
+      setStatus('error')
+      return
+    }
+
+    const { fields } = GOOGLE_FORM
+    const body = new URLSearchParams({
+      [fields.fullName]: formData.fullName,
+      [fields.email]: formData.email,
+      [fields.city]: formData.city,
+      [fields.interest]: formData.interest,
+      [fields.message]: formData.message,
+    })
+    if (formData.newsletter) body.append(fields.newsletter, 'Yes')
+
+    setStatus('sending')
+    try {
+      // Google Forms does not allow cross-origin reads, so the response is opaque;
+      // a resolved request means the submission was delivered.
+      await fetch(GOOGLE_FORM.actionUrl, { method: 'POST', mode: 'no-cors', body })
+      setStatus('sent')
+    } catch {
+      setStatus('error')
     }
   }
 
   return (
     <section id="community" className="py-24 bg-kraft relative border-t border-forest/10">
       <div className="max-w-4xl mx-auto px-6 sm:px-8">
-        <div className="bg-kraft-light/90 rounded-3xl p-8 sm:p-12 border border-forest/15 shadow-sm">
+        <div className="bg-kraft-light rounded-3xl p-8 sm:p-12 border border-forest/15 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-sans uppercase tracking-widest text-terracotta font-semibold">
-              Selective Membership Gatekeeper
+            <span className="text-xs font-sans uppercase tracking-widest text-terracotta-dark font-semibold">
+              Invite Only
             </span>
-            <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-widest text-forest font-normal mt-2">
-              Request Addition to Community
+            <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-widest text-forest-dark font-medium mt-2">
+              Request <span className="italic text-terracotta-dark">an Invite</span>
             </h2>
-            <div className="w-12 h-0.5 bg-terracotta mx-auto my-4"></div>
-            <p className="font-sans text-xs sm:text-sm text-forest/80 leading-relaxed font-light">
-              To preserve our community calm, access is provided on an invite-only basis. Submitting an application signs you up for our bi-weekly newsletter and priority invitations.
+            <div className="w-16 h-0.5 bg-terracotta mx-auto my-6"></div>
+            <p className="font-sans text-base text-forest leading-relaxed">
+              We welcome new members slowly, to keep the community calm and personal. Share a little about yourself and we will be in touch.
             </p>
           </div>
 
-          {submitted ? (
-            <div className="text-center py-12 px-6 bg-kraft rounded-2xl border border-forest/10 animate-fadeIn">
+          {status === 'sent' ? (
+            <div className="text-center py-12 px-6 bg-kraft rounded-2xl border border-forest/10" role="status">
               <div className="w-12 h-12 rounded-full bg-forest text-kraft mx-auto flex items-center justify-center mb-4 text-xl">
                 ✓
               </div>
-              <h3 className="font-serif text-2xl uppercase tracking-widest text-forest font-medium">
-                Application Received
+              <h3 className="font-serif text-2xl sm:text-3xl uppercase tracking-widest text-forest-dark font-medium">
+                Request Received
               </h3>
-              <p className="font-sans text-xs text-forest/80 max-w-md mx-auto mt-2 leading-relaxed font-light">
-                Thank you, <span className="font-semibold text-forest">{formData.fullName}</span>. Our membership team will review your application and send your private invite link via email shortly.
+              <p className="font-sans text-sm text-forest/90 max-w-md mx-auto mt-3 leading-relaxed">
+                Thank you, <span className="font-semibold text-forest-dark">{formData.fullName}</span>. We read every request personally and will reach out to you at {formData.email}.
               </p>
               <button
-                onClick={() => { setSubmitted(false); setFormData({ fullName: '', email: '', city: '', interest: 'edibles', message: '' }) }}
-                className="mt-6 text-[11px] uppercase tracking-widest text-terracotta hover:underline font-medium"
+                onClick={() => { setStatus('idle'); setFormData(emptyForm) }}
+                className="mt-6 text-xs uppercase tracking-widest text-terracotta-dark hover:underline font-semibold"
               >
-                Submit another application
+                Submit another request
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-forest font-medium mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Anirudh Yadav"
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-kraft border border-forest/20 text-xs text-forest focus:outline-none focus:border-terracotta transition-colors placeholder:text-forest/40"
-                  />
+                  <label htmlFor="fullName" className={labelClass}>Full Name *</label>
+                  <input id="fullName" type="text" required placeholder="Your name" value={formData.fullName} onChange={update('fullName')} className={inputClass} />
                 </div>
-
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-forest font-medium mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="e.g. anirudh@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-kraft border border-forest/20 text-xs text-forest focus:outline-none focus:border-terracotta transition-colors placeholder:text-forest/40"
-                  />
+                  <label htmlFor="email" className={labelClass}>Email Address *</label>
+                  <input id="email" type="email" required placeholder="you@example.com" value={formData.email} onChange={update('email')} className={inputClass} />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-forest font-medium mb-2">
-                    City of Residence
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. New Delhi / Jaipur"
-                    value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-kraft border border-forest/20 text-xs text-forest focus:outline-none focus:border-terracotta transition-colors placeholder:text-forest/40"
-                  />
+                  <label htmlFor="city" className={labelClass}>City</label>
+                  <input id="city" type="text" placeholder="e.g. New Delhi / Jaipur" value={formData.city} onChange={update('city')} className={inputClass} />
                 </div>
-
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-forest font-medium mb-2">
-                    Primary Area of Interest
-                  </label>
-                  <select
-                    value={formData.interest}
-                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-kraft border border-forest/20 text-xs text-forest focus:outline-none focus:border-terracotta transition-colors"
-                  >
-                    <option value="edibles">Organic Edibles (Ghee & Pulses)</option>
-                    <option value="experiences">Digital Detox & Weekend Trips</option>
-                    <option value="stays">Country Retreat Stays</option>
-                    <option value="all">All Sthir Life Verticals</option>
+                  <label htmlFor="interest" className={labelClass}>What interests you most?</label>
+                  <select id="interest" value={formData.interest} onChange={update('interest')} className={inputClass}>
+                    {INTEREST_OPTIONS.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-widest text-forest font-medium mb-2">
-                  What draws you to slow living? (Optional)
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="Share a short note about your lifestyle goals or curiosity..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-kraft border border-forest/20 text-xs text-forest focus:outline-none focus:border-terracotta transition-colors placeholder:text-forest/40"
-                ></textarea>
+                <label htmlFor="message" className={labelClass}>What draws you to slow living? (Optional)</label>
+                <textarea id="message" rows={3} placeholder="A few lines about you and what you are looking for..." value={formData.message} onChange={update('message')} className={inputClass}></textarea>
               </div>
 
-              <div className="text-center pt-4">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" checked={formData.newsletter} onChange={update('newsletter')} className="mt-1 w-4 h-4 accent-forest" />
+                <span className="font-sans text-sm text-forest/90">
+                  Also send me the occasional letter from the farm (harvest notes and gatherings).
+                </span>
+              </label>
+
+              {status === 'error' && (
+                <p className="text-center font-sans text-sm text-terracotta-dark bg-terracotta/10 rounded-xl px-4 py-3" role="alert">
+                  Sorry, we couldn’t send your request just now. Please try again, or{' '}
+                  <a
+                    href={whatsappLink('Hello Sthir Life Farms, I would like to request an invite.')}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline font-semibold"
+                  >
+                    message us on WhatsApp
+                  </a>
+                  .
+                </p>
+              )}
+
+              <div className="text-center pt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-10 py-4 bg-forest text-kraft text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest-light transition-all duration-300 shadow-sm hover:shadow"
+                  disabled={status === 'sending'}
+                  className="w-full sm:w-auto px-10 py-4 bg-forest text-kraft text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-forest-light transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-60"
                 >
-                  Apply for Membership
+                  {status === 'sending' ? 'Sending…' : 'Request an Invite'}
                 </button>
               </div>
             </form>

@@ -14,10 +14,11 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Philosophy', href: '#philosophy' },
-    { name: 'Verticals', href: '#verticals' },
+    { name: 'Pillars', href: '#pillars' },
     { name: 'The Sthir Way', href: '#sthir-way' },
+    { name: 'Membership', href: '#membership' },
     { name: 'Gallery', href: '#gallery' },
-    { name: 'Edibles & Artifacts', href: '#products' },
+    { name: 'Harvest', href: '#harvest' },
   ]
 
   return (
@@ -32,7 +33,7 @@ export default function Navbar() {
             className="w-10 h-10 object-contain rounded-full transition-transform duration-500 group-hover:scale-105 drop-shadow-sm"
           />
           <div className="flex flex-col">
-            <span className="font-serif text-xl tracking-widest font-bold uppercase text-forest-dark">
+            <span className="font-serif text-xl tracking-widest font-bold uppercase text-forest-dark whitespace-nowrap">
               Sthir Life
             </span>
             <span className="font-sans text-[10px] tracking-widest text-terracotta-dark uppercase -mt-1 font-bold">
@@ -41,12 +42,12 @@ export default function Navbar() {
           </div>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 bg-kraft-light/50 px-6 py-2 rounded-full border border-forest/10 shadow-inner">
+        <nav className="hidden xl:flex items-center gap-5 xl:gap-8 bg-kraft-light/50 px-6 py-2 rounded-full border border-forest/10 shadow-inner">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-xs uppercase tracking-widest text-forest-dark font-bold hover:text-terracotta transition-colors py-1 relative group"
+              className="text-xs uppercase tracking-widest whitespace-nowrap text-forest-dark font-bold hover:text-terracotta transition-colors py-1 relative group"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
@@ -54,18 +55,18 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4">
           <a
             href="#community"
-            className="px-5 py-2.5 bg-forest text-kraft text-xs uppercase tracking-widest font-medium rounded-full hover:bg-forest-light transition-all duration-300 shadow-sm hover:shadow"
+            className="px-5 py-2.5 bg-forest text-kraft text-xs uppercase tracking-widest font-medium rounded-full whitespace-nowrap hover:bg-forest-light transition-all duration-300 shadow-sm hover:shadow"
           >
-            Request Invite
+            Request an Invite
           </a>
         </div>
 
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-forest focus:outline-none"
+          className="xl:hidden p-2 text-forest focus:outline-none"
           aria-label="Toggle Navigation Menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +80,7 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-kraft-light border-b border-forest/10 px-6 py-6 transition-all duration-300">
+        <div className="xl:hidden bg-kraft-light border-b border-forest/10 px-6 py-6 transition-all duration-300">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
@@ -96,7 +97,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="mt-2 text-center px-5 py-3 bg-forest text-kraft text-xs uppercase tracking-widest font-medium rounded-full hover:bg-forest-light transition-colors"
             >
-              Apply for Community Membership
+              Request an Invite
             </a>
           </div>
         </div>
