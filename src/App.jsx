@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Philosophy from './components/Philosophy'
 import Verticals from './components/Verticals'
-import Craftsmanship from './components/Craftsmanship'
+import SthirWay from './components/SthirWay'
 import Products from './components/Products'
 import Gallery from './components/Gallery'
 import CommunityForm from './components/CommunityForm'
@@ -19,7 +19,7 @@ export default function App() {
         <Hero />
         <Philosophy />
         <Verticals />
-        <Craftsmanship />
+        <SthirWay />
         <Gallery />
         <Products />
         <CommunityForm />

@@ -37,7 +37,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs uppercase tracking-wider text-kraft/80">
               <li><a href="#philosophy" className="hover:text-kraft transition-colors">Slow Living Philosophy</a></li>
               <li><a href="#verticals" className="hover:text-kraft transition-colors">Our Three Verticals</a></li>
-              <li><a href="#craftsmanship" className="hover:text-kraft transition-colors">Soil & Craftsmanship</a></li>
+              <li><a href="#sthir-way" className="hover:text-kraft transition-colors">The Sthir Way</a></li>
               <li><a href="#gallery" className="hover:text-kraft transition-colors">Visual Gallery</a></li>
               <li><a href="#products" className="hover:text-kraft transition-colors">Edibles & Artifacts</a></li>
               <li><a href="#community" className="hover:text-kraft transition-colors">Apply for Membership</a></li>

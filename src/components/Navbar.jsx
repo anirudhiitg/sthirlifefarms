@@ -15,7 +15,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Philosophy', href: '#philosophy' },
     { name: 'Verticals', href: '#verticals' },
-    { name: 'Craftsmanship', href: '#craftsmanship' },
+    { name: 'The Sthir Way', href: '#sthir-way' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Edibles & Artifacts', href: '#products' },
   ]
