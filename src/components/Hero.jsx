@@ -36,7 +36,7 @@ export default function Hero() {
           </h1>
 
           <p className="font-sans text-base sm:text-lg text-forest max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10">
-            A member-only country club bringing calmness to everyday city life. Rooted in the sun-baked soil of Rajasthan, providing whole foods, digital detox paths, and unhurried retreats.
+            An invite-only community bringing calmness to everyday city life. Rooted in the sun-baked soil of Rajasthan, providing whole foods, digital detox paths, and unhurried retreats.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

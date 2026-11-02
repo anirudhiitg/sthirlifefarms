@@ -9,10 +9,10 @@ const pillars = [
     description:
       'Small-batch staples grown without shortcuts and sent to your kitchen as close to the farm as possible. Nothing polished, bleached or preserved, and always traceable to where it was grown.',
     offerings: [
-      'A2 Gir cow Bilona ghee',
+      'Bilona ghee',
       'Unpolished heritage pulses',
       'Shade-dried moringa & amla powders',
-      'Fresh urban microgreens',
+      'Microgreens (select locations)',
     ],
     rhythm: 'Every Day',
     image: '/assets/pillars/food.webp',

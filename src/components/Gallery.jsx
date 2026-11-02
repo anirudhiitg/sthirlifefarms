@@ -23,7 +23,7 @@ const items = [
     span: '',
   },
   {
-    title: 'Our Gir Cows',
+    title: 'Our Cows',
     caption: 'The heart of our Bilona ghee.',
     image: null,
     span: '',

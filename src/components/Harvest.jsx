@@ -2,9 +2,9 @@ import React from 'react'
 
 const harvest = [
   {
-    name: 'A2 Gir Cow Bilona Ghee',
+    name: 'Bilona Ghee',
     note: 'Churned in small batches',
-    description: 'Made the slow Bilona way from the milk of Gir cows: curd churned by hand, then gently cooked until golden and fragrant.',
+    description: 'Made the slow Bilona way: curd churned by hand, then gently cooked until golden and fragrant.',
     image: '/assets/harvest/ghee.webp',
     alt: 'Jar of Sthir Life Bilona ghee sealed with a green wax seal',
   },
@@ -21,6 +21,15 @@ const harvest = [
     description: 'Leaves and fruit dried in the shade and ground slowly, keeping their colour and character intact.',
     image: '/assets/harvest/moringa.webp',
     alt: 'Glass jar of shade-dried moringa powder on a rustic table',
+  },
+  {
+    name: 'Microgreens',
+    note: 'Harvested young, packed fresh',
+    description: 'Tender young greens, cut at their most flavourful and sent out fresh, so they reach your kitchen full of life.',
+    image: '/assets/harvest/microgreens.webp',
+    imageFit: 'contain',
+    alt: 'Sthir Life microgreens pack label',
+    availability: 'Available in select locations',
   },
 ]
 
@@ -42,18 +51,22 @@ export default function Harvest() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {harvest.map((item) => (
             <article
               key={item.name}
               className="flex flex-col bg-kraft rounded-3xl overflow-hidden border border-forest/10 shadow-sm hover:shadow-xl hover:shadow-forest/10 hover:-translate-y-1 transition-all duration-500 group"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className={`relative aspect-[4/3] overflow-hidden ${item.imageFit === 'contain' ? 'bg-kraft-dark/60 flex items-center justify-center p-8 sm:p-12' : ''}`}>
                 <img
                   src={item.image}
                   alt={item.alt}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className={
+                    item.imageFit === 'contain'
+                      ? 'w-full h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-700'
+                      : 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-700'
+                  }
                 />
                 <span className="absolute top-4 left-4 text-[11px] uppercase tracking-widest font-semibold text-kraft-light bg-forest/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
                   Members First
@@ -69,6 +82,15 @@ export default function Harvest() {
                 <p className="font-sans text-sm sm:text-[15px] text-forest/90 leading-relaxed">
                   {item.description}
                 </p>
+                {item.availability && (
+                  <p className="mt-5 self-start inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-widest font-semibold text-terracotta-dark bg-terracotta/10 rounded-full px-3 py-1.5">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5" aria-hidden="true">
+                      <path d="M12 21s6-5.4 6-10.5a6 6 0 0 0-12 0C6 15.6 12 21 12 21Z" />
+                      <circle cx="12" cy="10.5" r="2" />
+                    </svg>
+                    {item.availability}
+                  </p>
+                )}
               </div>
             </article>
           ))}

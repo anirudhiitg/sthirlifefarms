@@ -10,7 +10,7 @@ Sthir Life Farms is a conscious slow-living and farm-to-table brand anchored in 
 
 - **Wabi-Sabi Aesthetics:** Minimalist design inspired by natural earth tones (`#E8E0D5` Sand, `#2C4637` Forest Green, `#B45F44` Terracotta) and elegant serif typography (*Cormorant Garamond* and *Montserrat*).
 - **Core Business Verticals:**
-  1. **Sthir Food:** Pure A2 Bilona Ghee, heirloom pulses, organic stone-ground flours & superfoods.
+  1. **Sthir Food:** Pure Bilona Ghee, heirloom pulses, organic stone-ground flours & superfoods.
   2. **Sthir Experiences:** Farm visits, digital detox retreats, artisan workshops, and farm-to-table dining.
   3. **Sthir Stays:** Mud-and-lime sustainable cottages designed for slow living.
 - **Product Catalog with WhatsApp Integration:** Filterable showcase for handcrafted farm products with direct WhatsApp order inquiry links (`wa.me`).
